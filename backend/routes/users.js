@@ -2,8 +2,28 @@ const router = require("express").Router()
 const User = require("../models/User")
 const bcrypt = require("bcrypt")
 
+// add user
+router.post("/users", async (req, res) => {
+    const newUser = new User({
+        username: req.body.username,
+        password: req.body.password,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        profilePicture: req.body.profilePicture,
+        email: req.body.email,
+        address: req.body.address
+    });
+
+    try {
+        const savedUser = await newUser.save();
+        res.status(200).json(savedUser);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 // update user
-router.put("/user/:id", async (req, res) => {
+router.put("/users/:id", async (req, res) => {
     if (req.body.userId === req.params.id) {
         if (req.body.password) {
             try {
@@ -27,7 +47,7 @@ router.put("/user/:id", async (req, res) => {
 });
 
 // delete user
-router.delete("/user/:id", async (req, res) => {
+router.delete("/users/:id", async (req, res) => {
     if (req.body.userId === req.params.id || req.body.isAdmin) {
         try {
             await User.findByIdAndDelete(req.params.id);
@@ -41,7 +61,7 @@ router.delete("/user/:id", async (req, res) => {
 });
 
 // get a user
-router.get("/user", async (req, res) => {
+router.get("/users", async (req, res) => {
     const userId = req.query.userId;
     const username = req.query.username;
     try {
