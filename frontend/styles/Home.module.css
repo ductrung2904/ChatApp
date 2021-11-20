@@ -15,6 +15,7 @@
 }
 
 .user__container {
+  position: relative;
   grid-area: user__container;
   border-radius: 10px 0 0 10px;
   text-align: center;
@@ -47,6 +48,89 @@
   border: 0.25px solid #fff;
   margin: 20px 0;
   cursor: pointer;
+}
+
+.user__menu {
+  display: none;
+  border: 1px solid #efefef;
+  background: white;
+  width: 200px;
+  z-index: 15;
+  list-style: none;
+  margin: 0px;
+  padding: 10px 0px;
+  border-radius: 0px 0px 3px 3px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.18) 0px 6px 12px 0px;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 6px 12px 0px;
+  position: absolute;
+  top: 70px;
+  left: calc(50% + 65px);
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.user__menu a {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 0px;
+  padding: 8px 20px;
+  color: #333333;
+  font-size: 12px;
+  width: 265px;
+}
+
+.user__menu a:hover {
+  background-color: #cccccc;
+  width: auto;
+}
+
+.user__menu span {
+  margin-right: 10px;
+}
+
+.user__menu span .content {
+  display: block;
+}
+
+.user__menu span .icon i {
+  height: 21px;
+  margin-right: 10px;
+}
+
+.user__container:hover .user__menu {
+  display: block;
+}
+
+.user__container:hover .user__menu::before {
+  border-width: 9px;
+  border-style: solid;
+  border-color: transparent transparent white;
+  -o-border-image: initial;
+  border-image: initial;
+  margin-left: -9px;
+  bottom: 100%;
+  left: 18%;
+  content: " ";
+  height: 0px;
+  width: 0px;
+  position: absolute;
+  pointer-events: none;
+}
+
+.user__container:hover .user__menu::after {
+  content: " ";
+  background: transparent;
+  height: 20px;
+  width: 150px;
+  top: -20px;
+  left: calc(50% - 65px);
+  position: absolute;
+  display: inline-block;
 }
 
 .search__container {
@@ -147,23 +231,23 @@
   align-content: center;
   grid-area: new__message__container;
   border-top: 1px solid rgba(0, 0, 0, 0.25);
-  /* border-radius: 0 0 0 10px; */
   padding: 0 15px;
 }
 
-.new__message__container span {
+.new__message__container button {
   display: grid;
   place-content: center center;
   background: #eee;
+  border: none;
   border-radius: 100%;
   color: #002c88;
   text-decoration: none;
-  font-size: 3.6rem;
+  font-size: 2.4rem;
   padding-bottom: 4px;
   cursor: pointer;
 }
 
-.new__message__container span:hover {
+.new__message__container button:hover {
   background: silver;
 }
 

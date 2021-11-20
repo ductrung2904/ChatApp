@@ -9,6 +9,33 @@ function NavTab() {
                     <div className="avatar"></div>
                 </div>
             </div>
+
+            <div className="user__menu">
+                <a>
+                    <span className="icon">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </span>
+                    <span className="content">
+                        <span>Tài khoản</span>
+                    </span>
+                </a>
+                <a>
+                    <span className="icon">
+                        <i class="fa fa-cog" aria-hidden="true"></i>
+                    </span>
+                    <span className="content">
+                        <span>Cài đặt</span>
+                    </span>
+                </a>
+                <a>
+                    <span className="icon">
+                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                    </span>
+                    <span className="content">
+                        <span>Đăng xuất</span>
+                    </span>
+                </a>
+            </div>
         </div>
     )
 }
