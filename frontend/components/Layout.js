@@ -1,5 +1,4 @@
 import React from 'react'
-import '../styles/Home.module.css'
 import NavTab from './NavTab'
 import Search from './Search'
 import ConversationList from './ConversationList'
@@ -10,7 +9,6 @@ import ChatInput from './ChatInput'
 
 function Layout() {
     return (
-        // <div className={styles.chat__container}>
         <div className="chat__container">
             <NavTab />
             <Search />

@@ -3,22 +3,26 @@ import React from 'react'
 function MessageBoard() {
     return (
         <div className="chat__message__list">
-            <div className="message__time">15:15, November 1</div>
-            {/* <div className={styles["message__row"] + " " + styles["other__message"]}> */}
-            <div className="message__row other__message">
-                <div className="message__content">
-                    <img src="https://scontent.xx.fbcdn.net/v/t1.6435-1/p100x100/237058448_2891263887792724_558775700647028364_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=dbb9e7&_nc_ohc=BaIn8vGmlpsAX80N9f8&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=992e2399251b7531b909f24aa1933e51&oe=61A9F366" alt="" />
-                    <div className="message__username">Dang Lai</div>
-                    <div className="message__text">
-                        thêm thằng vũ dô
+            <div>
+                <div className="message__time">15:15, November 1</div>
+                <div className="message__row other__message">
+                    <div className="message__content">
+                        <img src="https://scontent.xx.fbcdn.net/v/t1.6435-1/p100x100/237058448_2891263887792724_558775700647028364_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=dbb9e7&_nc_ohc=BaIn8vGmlpsAX80N9f8&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=992e2399251b7531b909f24aa1933e51&oe=61A9F366" alt="" />
+                        <div className="message__username">Dang Lai</div>
+                        <div className="message__text">
+                            thêm thằng vũ dô
+                        </div>
                     </div>
                 </div>
             </div>
-            <div className="message__row you__message">
-                <div className="message__content">
-                    <div className="message__username">Đức Trung</div>
-                    <div className="message__text">
-                        Ok
+            <div>
+                <div className="message__time">15:16, November 1</div>
+                <div className="message__row you__message">
+                    <div className="message__content">
+                        <div className="message__username">Đức Trung</div>
+                        <div className="message__text">
+                            Ok
+                        </div>
                     </div>
                 </div>
             </div>
