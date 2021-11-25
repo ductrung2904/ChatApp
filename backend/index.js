@@ -23,6 +23,7 @@ const port = process.env.PORT || 5001;
 app.use(require("./routes/conversation"));
 app.use(require("./routes/users"));
 app.use(require("./routes/message"));
+app.use(require("./routes/auth"));
 
 app.listen(port, () => {
     console.log(`Backend running on port ${port}`)
