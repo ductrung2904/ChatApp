@@ -1,12 +1,7 @@
 module.exports = {
   reactStrictMode: true,
-  // async redirects() {
-  //   return [
-  //     {
-  //       source: '/',
-  //       destination: '/login',
-  //       permanent: true,
-  //     },
-  //   ]
-  // },
+  publicRuntimeConfig: {
+    API_DEVELOPMENT: 'http://localhost:5000',
+    PRODUCTION: false
+  }
 }

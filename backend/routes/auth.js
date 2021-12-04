@@ -1,44 +1,17 @@
 const router = require("express").Router()
-const User = require("../models/User")
-const bcrypt = require("bcrypt")
+const { userRegisterValidator, userLoginValidator } = require("../validators/auth")
+const { runValidation } = require('../validators')
+const { register, login, logout, requireLogin } = require("../controllers/auth")
 
 // register
-router.post("/register", async (req, res) => {
-    try {
-        const salt = await bcrypt.genSalt(10);
-        const hashedPassword = await bcrypt.hash(req.body.password, salt);
+router.post("/register", userRegisterValidator, runValidation, register);
 
-        const newUser = new User({
-            username: req.body.username,
-            password: hashedPassword,
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            profilePicture: req.body.profilePicture,
-            email: req.body.email,
-            address: req.body.address
-        });
+router.post("/login", userLoginValidator, runValidation, login);
 
-        const user = await newUser.save();
-        res.status(200).json(user);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
+router.get("/logout", logout);
 
-// login
-router.post("/login", async (req, res) => {
-    try {
-        const user = await User.findOne({ username: req.body.username });
-        !user && res.status(404).json("Tài khoản không tồn tại");
-
-        const validPassword = await bcrypt.compare(req.body.password, user.password);
-        // const validPassword = await User.findOne({ password: req.body.password });
-        !validPassword && res.status(400).json("Mật khảu không đúng");
-
-        res.status(200).json(user);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
+// router.get("/secret", requireLogin, (req, res) => {
+//     res.json({ message: "You have access" })
+// })
 
 module.exports = router;

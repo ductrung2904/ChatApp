@@ -9,7 +9,9 @@ router.post("/users", async (req, res) => {
         password: req.body.password,
         firstName: req.body.firstName,
         lastName: req.body.lastName,
+        gender: req.body.gender,
         profilePicture: req.body.profilePicture,
+        phone: req.body.phone,
         email: req.body.email,
         address: req.body.address
     });
@@ -62,17 +64,19 @@ router.delete("/users/:id", async (req, res) => {
 
 // get a user
 router.get("/users", async (req, res) => {
-    const userId = req.query.userId;
-    const username = req.query.username;
-    try {
-        const user = userId
-            ? await User.findById(userId)
-            : await User.findOne({ username: username });
-        const { password, updatedAt, ...other } = user._doc;
-        res.status(200).json(other);
-    } catch (err) {
-        res.status(500).json(err);
-    }
+    // const userId = req.query.userId;
+    // const username = req.query.username;
+    // try {
+    //     const user = userId
+    //         ? await User.findById(userId)
+    //         : await User.findOne({ username: username });
+    //     const { password, updatedAt, ...other } = user._doc;
+    //     res.status(200).json(other);
+    // } catch (err) {
+    //     res.status(500).json(err);
+    // }
+    const users = await User.find({})
+    res.status(200).json(users)
 });
 
 module.exports = router;

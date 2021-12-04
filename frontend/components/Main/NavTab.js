@@ -1,4 +1,6 @@
 import React from 'react'
+import Router from 'next/router'
+import { isAuth, logout } from '../../actions/auth'
 
 function NavTab() {
     return (
@@ -29,9 +31,11 @@ function NavTab() {
                         <span className="icon">
                             <i className="fa fa-sign-out" aria-hidden="true"></i>
                         </span>
-                        <span className="content">
-                            <span>Đăng xuất</span>
-                        </span>
+                        {isAuth() && (
+                            <span className="content" onClick={() => logout(() => Router.replace(`/`))}>
+                                <span>Đăng xuất</span>
+                            </span>
+                        )}
                     </a>
                 </div>
             </div>
