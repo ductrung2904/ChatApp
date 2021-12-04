@@ -19,12 +19,12 @@ export default function RegisterForm() {
     const { username, password, firstName, lastName, gender, phone, email, address, loading, message, error } = values;
 
     useEffect(() => {
-        isAuth() && alert('Đăng ký thành công')
+        isAuth()
     }, [])
 
     const handleSubmit = e => {
         e.preventDefault();
-
+        console.log({ username, password, firstName, lastName, gender, phone, email, address })
         setValues({ ...values, loading: true, error: false });
         const user = { username, password, firstName, lastName, gender, phone, email, address };
 
@@ -129,8 +129,8 @@ export default function RegisterForm() {
                     <div className="w-100 position-relative">
                         <div className="w-100">
                             <input
-                                type="number"
-                                name="phoneNumber"
+                                type="text"
+                                name="phone"
                                 className="form-control"
                                 placeholder="Số điện thoại"
                                 value={phone}
@@ -156,23 +156,22 @@ export default function RegisterForm() {
                             <div className="custom-control custom-radio custom-control-inline">
                                 <input
                                     type="radio"
-                                    id="customerGender1"
-                                    name="customerGender"
+                                    id="male"
+                                    name="gender"
                                     className="custom-control-input"
-                                    defaultChecked
                                     value="Nam"
                                     onChange={handleChange('gender')} />
-                                <label className="custom-control-label" htmlFor="customerGender1">Nam</label>
+                                <label className="custom-control-label" htmlFor="male">Nam</label>
                             </div>
                             <div className="custom-control custom-radio custom-control-inline">
                                 <input
                                     type="radio"
-                                    id="customerGender2"
-                                    name="customerGender"
+                                    id="female"
+                                    name="gender"
                                     className="custom-control-input"
                                     value="Nữ"
                                     onChange={handleChange('gender')} />
-                                <label className="custom-control-label" htmlFor="customerGender2">Nữ</label>
+                                <label className="custom-control-label" htmlFor="female">Nữ</label>
                             </div>
                         </div>
                     </div>

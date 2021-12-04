@@ -31,6 +31,9 @@ exports.userRegisterValidator = [
     check('phone')
         .isLength({ min: 10 })
         .withMessage('Số điện thoại phải có 10 số'),
+    check('phone')
+        .isNumeric()
+        .withMessage('Số điện thoại phải là số'),
     check('address')
         .not()
         .isEmpty()
